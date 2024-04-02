@@ -7,8 +7,53 @@
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
+
+<?php
+
+/**
+ * this class defines a single movie
+ */
+class Movie {
+
+    public $title;
+    public $year;
+    public $runtime;
+    public $score;
     
+    /**
+     * __construct
+     *
+     * @param  string $_title
+     * @param  int $_year
+     * @param  string $_runtime
+     * @param  int $_score
+     */
+    function __construct($_title, $_year, $_runtime, $_score)
+    {
+        $this->title = $_title;
+        $this->year = $_year;
+        $this->runtime = $_runtime;
+        $this->score = $_score;
+    }
+
+}
+
+$movies = [
+    new Movie('Dune: Part Two', 2024, '2h 46m', 93),
+    new Movie('Madame Web', 2024, '1h 56m', 12),
+    new Movie('Dune: Part Two', 2024, '2h 46m', 93),
+    new Movie('Star Wars: The Last Jedi', 2017, '2h 32m', 91),
+    new Movie('The Lord Of The Rings', 1978, '2h 11m', 49),
+];
+
+var_dump($movies);
+
+
+?>
+
+
+
+<body data-bs-theme="dark">
 
 
     <!-- bootstrap -->
