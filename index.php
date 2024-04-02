@@ -36,17 +36,21 @@ class Movie {
         $this->score = $_score;
     }
 
+    public function getFullData(){
+        return $this->title . ' (' . $this->year . '), ' . $this->runtime . ', Score: ' . $this->score;
+    }
+
 }
 
 $movies = [
     new Movie('Dune: Part Two', 2024, '2h 46m', 93),
     new Movie('Madame Web', 2024, '1h 56m', 12),
-    new Movie('Dune: Part Two', 2024, '2h 46m', 93),
+    new Movie('Twilight', 2008, '2h 1m', 49),
     new Movie('Star Wars: The Last Jedi', 2017, '2h 32m', 91),
     new Movie('The Lord Of The Rings', 1978, '2h 11m', 49),
 ];
 
-var_dump($movies);
+// var_dump($movies);
 
 
 ?>
@@ -54,6 +58,17 @@ var_dump($movies);
 
 
 <body data-bs-theme="dark">
+
+    <div class="container">
+        <h1>Movies</h1>
+        <ul>
+            <?php 
+                foreach($movies as $movie){
+                    echo "<li>" . $movie->getFullData() . "</li>";
+                }
+            ?>
+        </ul>
+    </div>
 
 
     <!-- bootstrap -->
