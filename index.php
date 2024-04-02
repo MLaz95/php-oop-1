@@ -2,10 +2,13 @@
 
 // class and data array
 require './models/Movie.php';
+require './models/Director.php';
 require './db.php';
 
 // html head
 require './partials/head.php';
+
+// var_dump($movies)
 
 ?>
 
@@ -21,12 +24,13 @@ require './partials/head.php';
                     <div class="card h-100 position-relative">
                         <div class="card-body">
                             <h5 class="card-title">' . $movie->title . '</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">' . $movie->getSubTitle() . '</h6>';
+                            <h6 class="card-subtitle mb-2 text-body-secondary">' . $movie->getSubTitle() . '</h6>
+                            <p> Director: ' . $movie->director->getDirectorInfo() . '</p>';
                             
                             foreach($movie->genres as $genre){
                                 echo '<span class="badge text-bg-light mx-1">' . $genre . '</span>';
                             }
-
+                        
                         echo '</div>';
                         
                         if($movie->score > 60){

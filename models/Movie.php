@@ -11,6 +11,7 @@ class Movie
     public $runtime;
     public $score;
     public $genres = [];
+    public $director;
 
     /**
      * __construct

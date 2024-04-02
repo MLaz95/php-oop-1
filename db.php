@@ -12,3 +12,15 @@ array_push($movies[0]->genres, 'adventure', 'drama', 'sci-fi');
 array_push($movies[1]->genres, 'action', 'adventure');
 array_push($movies[2]->genres, 'fantasy', 'romance');
 array_push($movies[3]->genres, 'action', 'adventure', 'fantasy', 'sci-fi');
+
+$directors = [
+    new Director('Denis ', 'Villeneuve', 'Canadian'),
+    new Director('S.J.', 'Clarkson', 'British'),
+    new Director('Catherine', 'Hardwicke', 'American'),
+    new Director('Rian ', 'Johnson', 'American'),
+    new Director('Ralph', 'Bakshi', 'American'),
+];
+
+foreach($movies as $key=>$movie){
+    $movie->director = $directors[$key];
+}
