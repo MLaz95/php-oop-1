@@ -28,9 +28,8 @@ class Movie
         $this->score = $_score;
     }
 
-    public function getFullData()
+    public function getSubTitle()
     {
-
-        return $this->title . ' (' . $this->year . '), ' . $this->runtime . ', Score: ' . $this->score;
+        return $this->year . ', ' . $this->runtime . ', Score: ' . $this->score;
     }
 }
