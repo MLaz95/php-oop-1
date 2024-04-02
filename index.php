@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,15 @@
 /**
  * this class defines a single movie
  */
-class Movie {
+class Movie
+{
 
     public $title;
     public $year;
     public $runtime;
     public $score;
-    
+    public $genres = [];
+
     /**
      * __construct
      *
@@ -36,10 +39,11 @@ class Movie {
         $this->score = $_score;
     }
 
-    public function getFullData(){
+    public function getFullData()
+    {
+
         return $this->title . ' (' . $this->year . '), ' . $this->runtime . ', Score: ' . $this->score;
     }
-
 }
 
 $movies = [
@@ -49,6 +53,12 @@ $movies = [
     new Movie('Star Wars: The Last Jedi', 2017, '2h 32m', 91),
     new Movie('The Lord Of The Rings', 1978, '2h 11m', 49),
 ];
+
+array_push($movies[0]->genres, 'adventure', 'drama', 'sci-fi');
+array_push($movies[1]->genres, 'action', 'adventure');
+array_push($movies[2]->genres, 'fantasy', 'romance');
+array_push($movies[3]->genres, 'action', 'adventure', 'fantasy', 'sci-fi');
+
 
 // var_dump($movies);
 
@@ -62,10 +72,14 @@ $movies = [
     <div class="container">
         <h1>Movies</h1>
         <ul>
-            <?php 
-                foreach($movies as $movie){
-                    echo "<li>" . $movie->getFullData() . "</li>";
-                }
+            <?php
+            foreach ($movies as $movie) {
+                echo "<li>" . $movie->getFullData();
+                foreach ($movie->genres as $genre) {
+                    echo ", " . $genre;
+                };
+                echo "</li>";
+            }
             ?>
         </ul>
     </div>
@@ -74,4 +88,5 @@ $movies = [
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>
